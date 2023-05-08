@@ -1,0 +1,5 @@
+# huge files for os
+ios/
+android/
+# unnecessary
+node_modules/
