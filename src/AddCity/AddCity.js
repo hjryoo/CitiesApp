@@ -7,7 +7,7 @@ import {
   TouchableOpacity
 } from 'react-native'
 
-import uuidV4 from 'uuid/v4'
+import uuidV4 from 'uuid'
 
 import { colors } from '../theme'
 

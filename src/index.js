@@ -1,31 +1,45 @@
 import Cities from './Cities/Cities'
-import City from './Citeis/City'
+import City from './Cities/City'
 import AddCity from './AddCity/AddCity'
 
 import { colors } from './theme'
 
-import { createAppContainer } from 'react-navigation'
-import { createStackNavigator } from 'react-navigation-stack'
-import { createBottomTabNavigator} from 'react-navigation-tab'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 
-const CitiesNav = createStackNavigator({
-    Cities: { screen : Cities },
-    City : { screen : City }
-    },
-    {
-    navigationOptions: {
-        headerStyle : {
-            backgroundColor: colors.primary
-        },
-        headerTintColor: '#fff'
-    }
-})
+const Navi = createNativeStackNavigator();
 
-const AppTabs = createBottomTabNavigator({
-    Cities: { screen : CitiesNav },
-    AddCity: { screen : AddCity }
-})
+// function CitiesNavi(){
+//     return (
+//         <NavigationContainer>
+//             <Navi.Navigator
+//             screenOptions={{
+//                 headerTintColor: '#fff',
+//                 headerStyle: {backgroundColor: colors.primary}}}>
+//                 <Navi.Screen name="Cities" screen="Cities"/>
+//                 <Navi.Screen name="City" screen="City"/>
+//             </Navi.Navigator>
+//         </NavigationContainer>
+//     )
+// }
 
-const Tabs = creaeteAppContainer(AppTabs)
+const AppTabs = createBottomTabNavigator();
 
-export default Tabs
+function returnTabs(){
+    return (
+        <NavigationContainer>
+            <AppTabs.Navigator>
+                <AppTabs.Screen name="CitiesNavi" component="CitiesNavi" />
+                <AppTabs.Screen name="AddCity" component="AddCity" />
+            </AppTabs.Navigator>
+        </NavigationContainer>
+    )
+}
+
+//const Tabs = creaeteNativeStackContainer(AppTabs)
+
+//export default Tabs
+
+//export default CitiesNavi;
+export default returnTabs;
